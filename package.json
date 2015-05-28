@@ -1,0 +1,19 @@
+{
+  "name": "daylight-ui",
+  "theme": "ui",
+  "version": "0.0.0",
+  "description": "Daylight UI theme",
+  "keywords": [
+    "light",
+    "ui"
+  ],
+  "repository": "https://github.com/atom/one-light-ui.git",
+  "license": "MIT",
+  "main": "lib/settings",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "devDependencies": {
+    "coffeelint": "^1.9.7"
+  }
+}
