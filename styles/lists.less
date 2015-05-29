@@ -7,7 +7,7 @@
 
   .generate-list-item-text-color(@class) {
     li:not(.list-nested-item).text-@{class},
-    li.list-nested-item.text-@{class} > .list-item {
+    li.list-nested-item.text-@{class}> .list-item {
       .text(@class);
     }
   }
@@ -20,17 +20,15 @@
 
   .generate-list-item-status-color(@color, @status) {
     li:not(.list-nested-item).status-@{status},
-    li.list-nested-item.status-@{status} > .list-item {
+    li.list-nested-item.status-@{status}> .list-item {
       color: @color;
     }
 
     li:not(.list-nested-item).selected.status-@{status},
-    li.list-nested-item.selected.status-@{status} > .list-item {
+    li.list-nested-item.selected.status-@{status}> .list-item {
       color: @color;
     }
-
   }
-
   .generate-list-item-status-color(@text-color-added, added);
   .generate-list-item-status-color(@text-color-ignored, ignored);
   .generate-list-item-status-color(@text-color-modified, modified);
@@ -67,7 +65,9 @@
   // know their size.
   li.selected {
     background-color: @background-color-selected;
-    &:before{ display: none; }
+    &:before {
+      display: none;
+    }
   }
 
   &.mark-active {
@@ -81,7 +81,8 @@
       background-color: transparent;
       position: static;
       display: inline-block;
-      left: auto; right: auto;
+      left: auto;
+      right: auto;
       height: @active-icon-size;
       width: @active-icon-size;
     }
@@ -98,9 +99,39 @@
   }
 }
 
+.linter-content,
+.linter-statusbar .highlight-error,
+.linter-statusbar .highlight-warning,
+.linter-name.highlight-error {
+  color: @text-color;
+}
+
+.linter-statusbar dd > span:hover {
+  color: #000;
+}
+.linter-statusbar dd span.pos {
+  color: #000;
+}
+
+.search-result.list-item {
+  color: @text-color;
+}
+
+.results-view {
+  .list-group li:not(.list-nested-item),
+  .list-tree li:not(.list-nested-item),
+  .list-group li.list-nested-item > .list-item,
+  .list-tree li.list-nested-item > .list-item,
+  .list-tree li.list-nested-item > .list-item,
+  .path-details.list-item {
+    color: @text-color !important;
+  }
+}
+
 .select-list.popover-list {
   @popover-list-padding: @ui-padding/4;
   background-color: @overlay-background-color;
+  color: @overlay-text-color;
   box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.3);
   padding: @popover-list-padding;
   border-radius: @component-border-radius;
