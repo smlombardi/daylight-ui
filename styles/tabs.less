@@ -7,7 +7,7 @@
 
 .tab-bar {
   height: @ui-tab-height;
-  box-shadow: inset 0 -1px 0 @tab-border-color;
+  //box-shadow: inset 0 -1px 3px @tab-border-color;
   background: @tab-bar-background-color;
   overflow-x: auto;
   overflow-y: hidden;
@@ -27,7 +27,9 @@
     height: @ui-tab-height;
     font-size: inherit;
     color: @tab-text-color;
+    background-color: @level-1-color;
     line-height: @ui-tab-height;
+    box-shadow: 0 -1px 2px hsla(0, 0, 0, .5);
     padding: 0;
     margin: 0;
 
@@ -47,7 +49,7 @@
       background-color: @tab-background-color-active;
       background-image: linear-gradient( hsla(0,0%,100,.02), hsla(0,0%,100,0) );
       background-clip: content-box;
-      box-shadow: inset 0 1px 1px hsla(0,0%,100,.06);
+    //  box-shadow: inset 0 1px 1px hsla(0,0%,100,.06);
       transition: opacity .16s;
       opacity: 0;
     }

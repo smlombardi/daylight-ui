@@ -2,24 +2,17 @@
 // ONE light UI variables
 // ----------------------------------------------
 
-@import "syntax-variables";
-.ui-syntax-color() { @syntax-background-color: hsl(220,1%,98%); } .ui-syntax-color(); // fallback color
-@ui-syntax-color: @syntax-background-color;
 
-// Color guards -----------------
-@ui-s-h: hue(@ui-syntax-color);
-.ui-hue() when (@ui-s-h = 0) { @ui-hue: 220; } // Use blue hue when no saturation
-.ui-hue() when (@ui-s-h > 0) { @ui-hue: @ui-s-h; }
-.ui-hue();
-
-@ui-saturation:   min( saturation(@ui-syntax-color), 24%); // max saturation
-@ui-lightness:    max(  lightness(@ui-syntax-color), 92%); // min lightness
+@ui-hue: 225;
+@ui-saturation:  0; // max saturation
+@ui-lightness:    max(  12%); // min lightness
 
 // Main colors -----------------
-@ui-fg:     hsl(@ui-hue, @ui-saturation, @ui-lightness - 72%);
-@ui-bg:     hsl(@ui-hue, @ui-saturation, @ui-lightness); // normalized @syntax-background-color
-@ui-border: darken(@base-background-color, 16%);
+@ui-fg:     hsl(0, 0%, 32%);
+@ui-bg:     hsl(0, 0%, 83%);
+@ui-border: darken(@ui-bg, 16%);
 
+@ui-syntax-color: hsl(225, 3%, 28%);
 
 
 
@@ -30,10 +23,11 @@
 
 
 // Text -----------------
-@text-color:            @ui-fg;
-@text-color-subtle:     lighten(@text-color, 32%);
-@text-color-highlight:  darken(@text-color, 10%);
-@text-color-selected:   darken(@text-color-highlight, 10%);
+@text-color:            hsl(0, 0, 32%);
+@text-color-tree:       hsl(0, 0%, 80%);
+@text-color-subtle:     lighten(@text-color, 24%);
+@text-color-highlight:  hsl(0, 0%, 90%);
+@text-color-selected:   hsl(0, 0%, 90%);
 
 @text-color-info:    hsl(208, 100%, 54%);
 @text-color-success: hsl(132,  60%, 44%);
@@ -47,10 +41,10 @@
 @background-color-warning: hsl( 40,  60%, 52%);
 @background-color-error:   hsl(  0,  60%, 56%);
 
-@background-color-highlight: hsla(@ui-hue, @ui-saturation, 50%,.08);
-@background-color-selected:  hsla(@ui-hue, @ui-saturation, 50%,.16);
+@background-color-highlight: hsla(0, 0, 50%,.46);
+@background-color-selected:  hsla(0, 0, 50%,.46);
 
-@app-background-color: @level-3-color;
+@app-background-color: @level-2-color;
 
 
 // Base -----------------
@@ -62,13 +56,13 @@
 @pane-item-background-color:       @base-background-color;
 @pane-item-border-color:           @base-border-color;
 
-@input-background-color:           @level-1-color;
+@input-background-color:           hsl(0, 0%, 95%);
 @input-border-color:               @base-border-color;
 
-@tool-panel-background-color:      @level-3-color;
+@tool-panel-background-color:      @level-2-color;
 @tool-panel-border-color:          @base-border-color;
 
-@inset-panel-background-color:     lighten(@level-2-color, 4%);
+@inset-panel-background-color:     hsl(0, 0%, 83%);
 @inset-panel-border-color:         fadeout(@base-border-color, 15%);
 
 @panel-heading-background-color:   @level-2-color;
@@ -82,13 +76,13 @@
 @button-background-color-selected: lighten(@base-accent-color, 4%);
 @button-border-color:              @base-border-color;
 
-@tab-bar-background-color:         @level-3-color;
+@tab-bar-background-color:         @level-2-color;
 @tab-bar-border-color:             @base-border-color;
-@tab-background-color:             @level-3-color;
-@tab-background-color-active:      @level-2-color;
-@tab-border-color:                 @base-border-color;
+@tab-background-color:             @level-2-color;
+@tab-background-color-active:      @level-3-color;
+@tab-border-color:                  hsl(0, 0%, 53%);;
 
-@tree-view-background-color:       @level-3-color;
+@tree-view-background-color:       hsl(225, 3%, 28%);
 @tree-view-border-color:           @base-border-color;
 
 @ui-site-color-1: hsl(132,  48%, 48%); // green
@@ -123,7 +117,7 @@
 // These variables are only used in this theme
 // ----------------------------------------------
 
-@ui-theme-name: one-light-ui;
+@ui-theme-name: daylight-ui;
 
 // Text (Custom) -----------------
 @text-color-faded: fade(@text-color, 30%);
@@ -136,7 +130,7 @@
 
 
 // Background (Custom) -----------------
-@level-1-color: lighten(@base-background-color, 4%);
+@level-1-color: lighten(@base-background-color, 5%);
 @level-2-color: @base-background-color;
 @level-3-color: darken(@base-background-color, 8%);
 
@@ -165,14 +159,14 @@
 @progress-background-color:         @base-accent-color;
 
 @scrollbar-color:                   darken(@level-3-color, 14%);
-@scrollbar-background-color:        @level-3-color; // replaced `transparent` with a solid color to test https://github.com/atom/one-light-ui/issues/4
-@scrollbar-color-editor:            contrast(@ui-syntax-color, darken(@ui-syntax-color, 14%), lighten(@ui-syntax-color, 9%) );
+@scrollbar-background-color:        @level-2-color;
+@scrollbar-color-editor:            @level-2-color;
 @scrollbar-background-color-editor: @ui-syntax-color;
 
 @tab-text-color:                    @text-color-subtle;
-@tab-text-color-active:             @text-color-highlight;
-@tab-text-color-editor:             contrast(@ui-syntax-color, lighten(@ui-syntax-color, 70%), @text-color-highlight );
-@tab-background-color-editor:       @ui-syntax-color;
+@tab-text-color-active:             hsl(0, 0, 32%);
+@tab-text-color-editor:             hsl(0, 0, 32%);
+@tab-background-color-editor:       #fff;
 
 @tooltip-background-color:          @base-accent-color;
 @tooltip-text-color:                contrast(@tooltip-background-color, hsl(@ui-hue,100%,100%), hsl(@ui-hue,100%,12%), 40% );
