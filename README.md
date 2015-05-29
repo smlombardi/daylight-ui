@@ -7,4 +7,4 @@ It's designed to be used with light syntax themes, such as my [Inspired Github t
 As a first pass, it's likely to have some issues, so please report.
 
 
-![screenshot](screenshot.png)
+![screenshot](https://github.com/smlombardi/daylight-ui/raw/master/screenshot.png)
