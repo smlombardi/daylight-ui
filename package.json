@@ -7,7 +7,7 @@
     "light",
     "ui"
   ],
-  "repository": "https://github.com/atom/one-light-ui.git",
+  "repository": "https://github.com/smlombardi/daylight-ui",
   "license": "MIT",
   "main": "lib/settings",
   "engines": {
