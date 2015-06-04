@@ -29,7 +29,7 @@
     color: @tab-text-color;
     background-color: #eeeded;
     line-height: @ui-tab-height;
-    box-shadow: 1px 1px 1px hsla(0, 0, 0, .8);
+    box-shadow: 1px 1px 3px hsla(0, 0, 0, .2);
     // added gradient as text; not sure if i like it
     background-image: linear-gradient( hsl(360, 3%, 93%) 85%, hsla(0, 0%, 60%, .2) );
 
@@ -151,6 +151,7 @@
   .tab.active,
   .tab.active + .tab {
     border-image: linear-gradient(transparent, transparent) 0 0 0 1 stretch;
+    
   }
 
 
